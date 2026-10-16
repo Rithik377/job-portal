@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   NavLink,
@@ -99,7 +99,7 @@ function GlobalNavBar() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <GlobalNavBar />
       <Routes>
         {/* Unit 4 Experiments */}
@@ -133,7 +133,7 @@ function App() {
         <Route path="/exp4/*" element={<U3Exp4 />} />
         <Route path="/*" element={<U3Exp4 />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -1,0 +1,75 @@
+/* U5Exp3.css - Deployment Guide & Verification Styles */
+
+.u5-deploy-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.u5-deploy-header {
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%);
+  color: #ffffff;
+  padding: 30px 28px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.35);
+  margin-bottom: 24px;
+}
+
+.u5-deploy-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+
+.u5-deploy-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  margin-bottom: 20px;
+}
+
+.u5-deploy-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+/* Comparison Table */
+.u5-comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin-top: 14px;
+}
+
+.u5-comp-table th,
+.u5-comp-table td {
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.u5-comp-table th {
+  background: #f8fafc;
+  font-weight: 700;
+  color: #334155;
+}
+
+.u5-comp-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.code-box {
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.82rem;
+  margin: 8px 0;
+  overflow-x: auto;
+}

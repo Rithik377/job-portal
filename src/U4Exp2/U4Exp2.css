@@ -1,0 +1,286 @@
+/* U4Exp2.css - Styles for State Management & Middleware */
+
+.u4-exp2-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.u4-exp2-header {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 50%, #2563eb 100%);
+  color: #ffffff;
+  padding: 30px 28px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3);
+  margin-bottom: 24px;
+}
+
+.u4-exp2-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+
+.u4-exp2-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* Two-column layout: Main Content + Middleware Inspector */
+.u4-main-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .u4-main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tabs */
+.u4-nav-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.u4-nav-tab-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.u4-nav-tab-btn.active {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+/* Search & Caching Bar */
+.u4-cache-search-bar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.u4-cache-search-inputs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.u4-cache-search-inputs input {
+  flex: 1;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.u4-cache-search-inputs select {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.u4-cache-status-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.u4-badge-hit {
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.u4-badge-miss {
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Job Cards */
+.u4-store-job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.u4-store-job-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.u4-btn-action {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.u4-btn-save {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+
+.u4-btn-save.saved {
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.u4-btn-apply {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.u4-btn-applied {
+  background: #e2e8f0;
+  color: #64748b;
+  cursor: default;
+}
+
+.u4-btn-withdraw {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+/* Sidebar: Middleware & DevTools Inspector */
+.u4-inspector-card {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-size: 0.82rem;
+}
+
+.u4-inspector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.u4-inspector-header h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.u4-logs-list {
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.u4-log-item {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: monospace;
+}
+
+.u4-log-action-name {
+  color: #a855f7;
+  font-weight: 700;
+}
+
+.u4-log-time {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.u4-cache-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  margin-top: 10px;
+}
+
+.u4-cache-table th,
+.u4-cache-table td {
+  border-bottom: 1px solid #334155;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+.u4-cache-table th {
+  color: #94a3b8;
+}
+
+/* Profile Form */
+.u4-profile-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.u4-form-row {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.u4-form-row label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.u4-form-row input,
+.u4-form-row textarea {
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}

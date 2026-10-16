@@ -1,0 +1,60 @@
+/* U5Exp1.css - Testing Dashboard Styles */
+
+.u5-test-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+}
+
+.u5-test-header {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #14b8a6 100%);
+  color: #ffffff;
+  padding: 30px 28px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.35);
+  margin-bottom: 24px;
+}
+
+.u5-test-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.85rem;
+  font-weight: 800;
+}
+
+.u5-test-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.u5-test-status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.status-passed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-running {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.u5-terminal-view {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  font-family: monospace;
+  font-size: 0.82rem;
+  margin-top: 16px;
+}

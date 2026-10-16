@@ -202,16 +202,25 @@ export default function U5Exp1() {
       {activeTab === "code" && (
         <div className="u5-terminal-view">
           <div style={{ color: "#34d399", marginBottom: "8px" }}>
-            // src/U5Exp1/jobPortal.test.js — Jest & React Testing Library Suite
+            // src/U5Exp1/jobPortal.test.jsx — Vitest & React Testing Library Suite
           </div>
           <pre style={{ margin: 0, overflowX: "auto", lineHeight: "1.5" }}>
-{`import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+{`import { describe, test, expect, beforeEach, afterEach } from "vitest";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import U4Exp1 from "../U4Exp1/U4Exp1";
 import U4Exp2 from "../U4Exp2/U4Exp2";
 import U4Exp3 from "../U4Exp3/U4Exp3";
+import { setForceApiError } from "../U4Exp1/api";
 
 describe("Job Portal Component Test Suite", () => {
+  beforeEach(() => {
+    setForceApiError(false);
+  });
+
+  afterEach(() => {
+    setForceApiError(false);
+  });
+
   // a) Test job cards, lists and detail view
   test("a) Renders job listings correctly with company and salary badges", async () => {
     render(<U4Exp1 />);
@@ -220,7 +229,7 @@ describe("Job Portal Component Test Suite", () => {
     // Wait for async REST API data
     await waitFor(() => {
       expect(screen.getByText(/Senior Frontend Engineer/i)).toBeInTheDocument();
-    });
+    }, { timeout: 3000 });
     expect(screen.getByText(/Google Cloud/i)).toBeInTheDocument();
   });
 
@@ -233,23 +242,30 @@ describe("Job Portal Component Test Suite", () => {
     await waitFor(() => {
       expect(screen.getByText(/Senior Frontend Engineer/i)).toBeInTheDocument();
       expect(screen.queryByText(/Cyber Security Analyst/i)).not.toBeInTheDocument();
-    });
+    }, { timeout: 3000 });
   });
 
   // c) Test saving and removing jobs
   test("c) Toggles bookmark state when save button is clicked", () => {
     render(<U4Exp2 />);
     const saveButtons = screen.getAllByRole("button", { name: /save/i });
+    expect(saveButtons.length).toBeGreaterThan(0);
+
+    // Click Save
     fireEvent.click(saveButtons[0]);
+    // Verifies store bookmark action dispatched
     expect(screen.getByText(/Middleware Action Monitor/i)).toBeInTheDocument();
   });
 
   // d) Test job application and withdrawal functionality
   test("d) Submits application and permits withdrawal", async () => {
     render(<U4Exp3 />);
-    const applyButtons = screen.getAllByRole("button", { name: /Apply/i });
+    const applyButtons = await screen.findAllByRole("button", { name: /Apply/i }, { timeout: 3000 });
     fireEvent.click(applyButtons[0]);
-    expect(screen.getByText(/Apply for Position/i)).toBeInTheDocument();
+
+    // Modal should be visible with Application form
+    expect(screen.getByText(/Applicant Full Name/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Submit Application \\(POST\\)/i })).toBeInTheDocument();
   });
 
   // e) Test loading and error components
@@ -257,7 +273,9 @@ describe("Job Portal Component Test Suite", () => {
     render(<U4Exp1 />);
     const simButton = screen.getByTitle(/Click to toggle simulated HTTP 500 error/i);
     fireEvent.click(simButton);
-    const retryBtn = screen.getByRole("button", { name: /🔄 Reset Filters|Retry/i });
+
+    // Retry should be visible if error encountered
+    const retryBtn = await screen.findByRole("button", { name: /Retry API Request/i }, { timeout: 3000 });
     expect(retryBtn).toBeInTheDocument();
   });
 });`}

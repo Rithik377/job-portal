@@ -123,6 +123,9 @@ export default function U4Exp1() {
     const nextState = !isSimulatingError;
     setForceApiError(nextState);
     setIsSimulatingError(nextState);
+    if (nextState) {
+      fetchJobs();
+    }
   };
 
   return (

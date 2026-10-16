@@ -7,6 +7,10 @@ import {
   useLocation
 } from "react-router-dom";
 
+// Redux Provider & Store Integration
+import { Provider } from "react-redux";
+import reduxStore from "./redux/store";
+
 import U3Exp4 from "./U3Exp4/U3Exp4";
 import U4Exp1 from "./U4Exp1/U4Exp1";
 import U4Exp2 from "./U4Exp2/U4Exp2";
@@ -99,41 +103,43 @@ function GlobalNavBar() {
 
 function App() {
   return (
-    <HashRouter>
-      <GlobalNavBar />
-      <Routes>
-        {/* Unit 4 Experiments */}
-        <Route path="/u4-exp1/*" element={<U4Exp1 />} />
-        <Route path="/u4exp1/*" element={<U4Exp1 />} />
-        <Route path="/uexp1/*" element={<U4Exp1 />} />
+    <Provider store={reduxStore}>
+      <HashRouter>
+        <GlobalNavBar />
+        <Routes>
+          {/* Unit 4 Experiments */}
+          <Route path="/u4-exp1/*" element={<U4Exp1 />} />
+          <Route path="/u4exp1/*" element={<U4Exp1 />} />
+          <Route path="/uexp1/*" element={<U4Exp1 />} />
 
-        <Route path="/u4-exp2/*" element={<U4Exp2 />} />
-        <Route path="/u4exp2/*" element={<U4Exp2 />} />
-        <Route path="/uexp2/*" element={<U4Exp2 />} />
+          <Route path="/u4-exp2/*" element={<U4Exp2 />} />
+          <Route path="/u4exp2/*" element={<U4Exp2 />} />
+          <Route path="/uexp2/*" element={<U4Exp2 />} />
 
-        <Route path="/u4-exp3/*" element={<U4Exp3 />} />
-        <Route path="/u4exp3/*" element={<U4Exp3 />} />
-        <Route path="/uexp3/*" element={<U4Exp3 />} />
+          <Route path="/u4-exp3/*" element={<U4Exp3 />} />
+          <Route path="/u4exp3/*" element={<U4Exp3 />} />
+          <Route path="/uexp3/*" element={<U4Exp3 />} />
 
-        <Route path="/u4-exp4/*" element={<U4Exp4 />} />
-        <Route path="/u4exp4/*" element={<U4Exp4 />} />
-        <Route path="/uexp4/*" element={<U4Exp4 />} />
+          <Route path="/u4-exp4/*" element={<U4Exp4 />} />
+          <Route path="/u4exp4/*" element={<U4Exp4 />} />
+          <Route path="/uexp4/*" element={<U4Exp4 />} />
 
-        {/* Unit 5 Experiments */}
-        <Route path="/u5-exp1/*" element={<U5Exp1 />} />
-        <Route path="/u5exp1/*" element={<U5Exp1 />} />
+          {/* Unit 5 Experiments */}
+          <Route path="/u5-exp1/*" element={<U5Exp1 />} />
+          <Route path="/u5exp1/*" element={<U5Exp1 />} />
 
-        <Route path="/u5-exp2/*" element={<U5Exp2 />} />
-        <Route path="/u5exp2/*" element={<U5Exp2 />} />
+          <Route path="/u5-exp2/*" element={<U5Exp2 />} />
+          <Route path="/u5exp2/*" element={<U5Exp2 />} />
 
-        <Route path="/u5-exp3/*" element={<U5Exp3 />} />
-        <Route path="/u5exp3/*" element={<U5Exp3 />} />
+          <Route path="/u5-exp3/*" element={<U5Exp3 />} />
+          <Route path="/u5exp3/*" element={<U5Exp3 />} />
 
-        {/* Unit 3 Base Application */}
-        <Route path="/exp4/*" element={<U3Exp4 />} />
-        <Route path="/*" element={<U3Exp4 />} />
-      </Routes>
-    </HashRouter>
+          {/* Unit 3 Base Application */}
+          <Route path="/exp4/*" element={<U3Exp4 />} />
+          <Route path="/*" element={<U3Exp4 />} />
+        </Routes>
+      </HashRouter>
+    </Provider>
   );
 }
 
